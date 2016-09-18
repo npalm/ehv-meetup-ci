@@ -1,5 +1,5 @@
 # Pull base image.
-FROM ubuntu:16.04
+FROM ubuntu:14.04.5
 
 # Install base software packages
 RUN apt-get update && \
@@ -39,7 +39,7 @@ RUN set -ex \
   done
 
 ENV NPM_CONFIG_LOGLEVEL info
-ENV NODE_VERSION 6.2.2
+ENV NODE_VERSION 6.5.0
 
 RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" \
   && curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc" \
@@ -65,7 +65,7 @@ RUN npm install bower@1.7.9 -g \
 
 
 # Install chrome
-ENV CHROME_DRIVER_VERSION 2.21
+ENV CHROME_DRIVER_VERSION 2.24
 
 # Chrome
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
